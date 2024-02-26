@@ -1,13 +1,13 @@
 #include <iostream>
 #include <memory>
 
-std::unique_ptr<int> getData() {
+std::unique_ptr<int> get_data() {
     auto a = std::make_unique<int>(5);
     return a;
 }
 
 int main() {
-    auto b = getData();
+    auto b = get_data();
     auto c = std::move(b);
 
     if (b) {

@@ -1,6 +1,6 @@
 #include <iostream>
 
-void modifyData(int** data) {
+void modify_data(int** data) {
     int* temp = new int(10);
     delete *data;
     *data = temp;
@@ -9,7 +9,7 @@ void modifyData(int** data) {
 
 int main() {
     int* data = new int(5);
-    modifyData(&data);
+    modify_data(&data);
     std::cout << *data << std::endl;  // 10
 
     return 0;
