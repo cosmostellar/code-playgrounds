@@ -2,11 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main()
-{
+int main() {
     char *ptr = malloc(100);
-    if (ptr == NULL)
-    {
+    if (ptr == NULL) {
         printf("Memory allocation failed!\n");
         return 1;
     }
