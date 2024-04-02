@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 void work(int &x) { x++; }
 void work(std::vector<int> data) { data[0] = 10000; }
