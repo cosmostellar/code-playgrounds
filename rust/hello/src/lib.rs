@@ -3,6 +3,18 @@ use std::{
     thread,
 };
 
+/*
+mpsc:
+Multi-producer, single-consumer
+FIFO queue communication primitives.
+*/
+
+/*
+arc:
+A thread-safe reference-counting pointer.
+'Arc' stands for 'Atomically Reference Counted'.
+*/
+
 pub struct ThreadPool {
     workers: Vec<Worker>,
     sender: Option<mpsc::Sender<Job>>,
@@ -37,6 +49,12 @@ impl ThreadPool {
         }
     }
 
+    /*
+        - fnOnce(): This means the closure takes no parameters and returns no value.
+          The Once part means that the closure can be called exactly once.
+        - Send: This means the closure can be sent between threads safely.
+        - 'static: This means the closure does not capture any non-static (i.e., stack-allocated) variables.
+    */
     pub fn execute<F>(&self, f: F)
     where
         F: FnOnce() + Send + 'static,
@@ -49,12 +67,19 @@ impl ThreadPool {
 
 impl Drop for ThreadPool {
     fn drop(&mut self) {
+        /*
+        This line is calling the drop function on the sender field of the ThreadPool instance.
+        The take method replaces the sender with None and returns the original value.
+        This is done to ensure that all messages that are currently in the channel are dropped,
+        which will cause the workers to stop waiting for new jobs.
+        */
         drop(self.sender.take());
 
         for worker in &mut self.workers {
             println!("Shutting down worker {}", worker.id);
 
             if let Some(thread) = worker.thread.take() {
+                // This ensures that all workers finish their current job before the ThreadPool is dropped.
                 thread.join().unwrap();
             }
         }
@@ -68,6 +93,19 @@ struct Worker {
 
 impl Worker {
     fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Worker {
+        /*
+        `move || {}``
+        Capture a closure's environment by value.
+        move converts any variables captured by reference or
+        mutable reference to variables captured by value. */
+
+        /*
+        `JoinHandle<T>`
+        In Rust, when you spawn a new thread using thread::spawn,
+        it returns a JoinHandle. You can call the join method on a JoinHandle
+        to make the current thread wait until the spawned thread finishes.
+        */
+
         let thread = thread::spawn(move || loop {
             let message = receiver.lock().unwrap().recv();
 
