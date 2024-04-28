@@ -1,4 +1,6 @@
-.vscode
 .DS_Store
-temp
+.vscode
 __pycache__
+xcuserdata
+*.xcworkspace
+temp
