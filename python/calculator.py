@@ -1,5 +1,9 @@
 import os
 
+# Original code source:
+# https://www.udemy.com/course/100-days-of-code
+
+
 logo = """
  _____________________
 |  _________________  |

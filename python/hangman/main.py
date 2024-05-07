@@ -3,6 +3,10 @@ from hangman_art import logo, stages
 import os
 import random
 
+# Original code source:
+# https://www.udemy.com/course/100-days-of-code
+
+
 os.system('clear')
 chosen_word = random.choice(word_list)
 word_length = len(chosen_word)

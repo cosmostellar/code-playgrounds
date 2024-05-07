@@ -1,6 +1,10 @@
 from art import logo
 import random
 
+# Original code source:
+# https://www.udemy.com/course/100-days-of-code
+
+
 print(logo)
 
 print("Welcome to the Number Guessing Game!")

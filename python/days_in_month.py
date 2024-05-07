@@ -1,3 +1,7 @@
+# Original code source:
+# https://www.udemy.com/course/100-days-of-code
+
+
 def is_leap(year):
     if year % 4 == 0:
         if year % 100 == 0:

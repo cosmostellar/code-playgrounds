@@ -6,8 +6,13 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 
-/* Use the following command to try it yourself.
-   nc 127.0.0.1 8801 */
+/*
+Original code source:
+https://www.udemy.com/course/fundamentals-of-networking-for-effective-backend-design
+
+Use the following command to try it yourself.
+nc 127.0.0.1 8801
+*/
 
 #define PORT 8801
 

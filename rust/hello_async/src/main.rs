@@ -1,4 +1,4 @@
-// Code Source: https://rust-lang.github.io/async-book/09_example/00_intro.html
+// Source: https://rust-lang.github.io/async-book/09_example/00_intro.html
 
 use std::{fs, time::Duration};
 

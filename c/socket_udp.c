@@ -6,8 +6,13 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 
-/* Use the following command to try it yourself.
-   nc -u 127.0.0.1 5501 */
+/*
+Original code source:
+https://www.udemy.com/course/fundamentals-of-networking-for-effective-backend-design
+
+Use the following command to try it yourself.
+nc -u 127.0.0.1 5501
+*/
 
 int main(int argc, char** argv) {
     int port = 5501;

@@ -2,6 +2,9 @@ import http from "http";
 import { AddressInfo } from "net";
 
 /*
+Original code source:
+https://www.udemy.com/course/fundamentals-of-networking-for-effective-backend-design
+
 :: (IPv6) -> 0.0.0.0 (IPv4)
 Unspecified address
 */

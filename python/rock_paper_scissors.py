@@ -1,3 +1,7 @@
+# Original code source:
+# https://www.udemy.com/course/100-days-of-code
+
+
 import random
 from enum import Enum
 
